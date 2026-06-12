@@ -1,10 +1,11 @@
 # AI-Powered-Telecom-Customer-Churn-Prediction-System
 
-# Customer Churn Prediction System
 
 A complete end-to-end Machine Learning pipeline designed to predict customer churn using structured telecom data.
 The project covers data preprocessing, feature engineering, model training, evaluation, and deployment through a Flask web application.
 
+##Render link
+https://ai-powered-telecom-customer-churn.onrender.com
 
 
 ## Project Overview
@@ -49,11 +50,8 @@ Customer Churn Prediction
 
 │   └── Correlation Filtering
 
-│
 
 ├── Data Balancing (SMOTE)
-
-│
 
 ├── Model Training & Evaluation
 
@@ -70,14 +68,11 @@ Customer Churn Prediction
 │   ├── XGBoost
 
 │   └── SVM
-│
+
 ├── Model Selection (AUC-ROC Comparison)
 
-│
 
 ├── Model Persistence (Pickle)
-
-│
 
 └── Flask Web Deployment
 
