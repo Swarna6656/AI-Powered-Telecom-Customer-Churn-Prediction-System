@@ -1,0 +1,16 @@
+2026-06-12 12:05:48,295 - INFO - Before Train data : (5634, 3) : ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim']
+2026-06-12 12:05:48,295 - INFO - Before Test data : (1409, 3) : ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim']
+2026-06-12 12:05:48,296 - INFO - Number of columns are good in constant technique : 3
+2026-06-12 12:05:48,296 - INFO - Number of columns are bad in constant technique : 0
+2026-06-12 12:05:48,297 - INFO - Columns to remove in constant technique : []
+2026-06-12 12:05:48,298 - INFO - Number of columns are good in quasi constant technique : 3
+2026-06-12 12:05:48,298 - INFO - Number of columns are bad in quasi constant technique : 0
+2026-06-12 12:05:48,298 - INFO - Columns to remove in quasi constant technique : []
+2026-06-12 12:05:48,304 - INFO - P values are : tenure_yeo_trim            8.650163e-175
+MonthlyCharges_qt_trim      1.162943e-34
+TotalCharges_re_qt_trim     3.820773e-66
+dtype: float64
+2026-06-12 12:05:48,304 - INFO - Columns to remove using hypothesis testing : []
+2026-06-12 12:05:48,305 - INFO - After Train data : (5634, 3) : ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim']
+2026-06-12 12:05:48,306 - INFO - After Test data : (1409, 3) : ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim']
+2026-06-12 12:05:48,306 - INFO - Final Numerical Columns Count : 3

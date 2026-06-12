@@ -1,0 +1,4 @@
+2026-06-12 12:05:48,223 - INFO - Before Train Column Name : ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges_re']
+2026-06-12 12:05:48,223 - INFO - Before Test Column Name : ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges_re']
+2026-06-12 12:05:48,294 - INFO - After Train Column Name : ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim']
+2026-06-12 12:05:48,294 - INFO - After Test Column Name : ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim']

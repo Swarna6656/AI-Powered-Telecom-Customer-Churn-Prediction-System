@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Telco Churn Prediction Portal</title>
+    <style>
+        :root {
+            /* High-end vibrant corporate color scheme */
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e1b4b, #2e1065, #1e293b);
+            --card-bg: rgba(255, 255, 255, 0.97);
+            --primary-glow: linear-gradient(135deg, #6366f1, #a855f7);
+            --primary-hover: linear-gradient(135deg, #4f46e5, #9333ea);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: vibrantAnimation 18s ease infinite;
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        @keyframes vibrantAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1150px;
+            background: var(--card-bg);
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Pure CSS Tab Controller System Layout */
+        .tab-radio {
+            display: none;
+        }
+
+        .tab-navigation-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tab-label {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #475569;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.25s ease;
+        }
+
+        /* Dynamic visual selection styling when a choice is toggled */
+        #tab1:checked ~ .tab-navigation-bar .label1,
+        #tab2:checked ~ .tab-navigation-bar .label2,
+        #tab3:checked ~ .tab-navigation-bar .label3 {
+            background: var(--primary-glow);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hide all section views natively */
+        .tab-content-panel {
+            display: none;
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+
+        /* Display the targeted selected panel container explicitly */
+        #tab1:checked ~ #content-predictor,
+        #tab2:checked ~ #content-model,
+        #tab3:checked ~ #content-developer {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+            font-weight: 800;
+            font-size: 38px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+        label { font-weight: 600; font-size: 15px; margin-bottom: 8px; color: #1e293b; }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 15px;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-glow);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: 700;
+            margin-top: 45px;
+        }
+
+        .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+
+        .results { margin-top: 40px; padding: 24px; border-radius: 12px; text-align: center; }
+        .prediction { background-color: #f1f5f9; color: #0f172a; font-weight: bold; border: 2px solid #cbd5e1; }
+
+        .section-box {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-title-model { margin-top: 0; color: #1e1b4b; font-size: 22px; font-weight: 700; border-bottom: 2px solid #6366f1; padding-bottom: 8px; margin-bottom: 20px; }
+        .section-title-dev { margin-top: 0; color: #1e1b4b; font-size: 22px; font-weight: 700; border-bottom: 2px solid #a855f7; padding-bottom: 8px; margin-bottom: 20px; }
+
+        /* Media Optimization Breakpoints */
+        @media (max-width: 1024px) { .form-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 680px) { .form-grid { grid-template-columns: 1fr; } .tab-navigation-bar { flex-direction: column; border-radius: 16px; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <input type="radio" id="tab1" name="portal-tabs" class="tab-radio" checked>
+    <input type="radio" id="tab2" name="portal-tabs" class="tab-radio">
+    <input type="radio" id="tab3" name="portal-tabs" class="tab-radio">
+
+    <div class="tab-navigation-bar">
+        <label for="tab1" class="tab-label label1">🎛️ Prediction</label>
+        <label for="tab2" class="tab-label label2">📊 About Model</label>
+        <label for="tab3" class="tab-label label3">👩‍💻 About Developer</label>
+    </div>
+
+    <div id="content-predictor" class="tab-content-panel">
+        <h2>Telco Churn Prediction Dashboard</h2>
+        <div class="subtitle">Enter customer metrics below to calculate real-time retention data risks.</div>
+
+        <form action="/predict" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="tenure_yeo_trim">Tenure:</label>
+                    <input type="number" step="any" id="tenure_yeo_trim" name="tenure_yeo_trim" placeholder="Enter customer tenure" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Contract">Contract Type:</label>
+                    <select id="Contract" name="Contract">
+                        <option value="0">Month-to-month</option>
+                        <option value="1">One year</option>
+                        <option value="2">Two year</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="MonthlyCharges_qt_trim">Monthly Charges:</label>
+                    <input type="number" step="any" id="MonthlyCharges_qt_trim" name="MonthlyCharges_qt_trim" placeholder="Enter monthly charges" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="TotalCharges_re_qt_trim">Total Charges:</label>
+                    <input type="number" step="any" id="TotalCharges_re_qt_trim" name="TotalCharges_re_qt_trim" placeholder="Enter total cumulative charges" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="PaymentMethod">Payment Method:</label>
+                    <select id="PaymentMethod" name="PaymentMethod">
+                        <option value="0">Electronic check</option>
+                        <option value="1">Mailed check</option>
+                        <option value="2">Bank transfer (automatic)</option>
+                        <option value="3">Credit card (automatic)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="PaperlessBilling">Paperless Billing:</label>
+                    <select id="PaperlessBilling" name="PaperlessBilling">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="InternetService">Internet Service Provider:</label>
+                    <select id="InternetService" name="InternetService">
+                        <option value="0">DSL</option>
+                        <option value="1">Fiber optic</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="PhoneService">Phone Service:</label>
+                    <select id="PhoneService" name="PhoneService">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="MultipleLines">Multiple Lines:</label>
+                    <select id="MultipleLines" name="MultipleLines">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No Phone Service</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Mobile_Network">Mobile Network Provider:</label>
+                    <select id="Mobile_Network" name="Mobile_Network">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="OnlineSecurity">Online Security:</label>
+                    <select id="OnlineSecurity" name="OnlineSecurity">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="OnlineBackup">Online Backup:</label>
+                    <select id="OnlineBackup" name="OnlineBackup">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="DeviceProtection">Device Protection:</label>
+                    <select id="DeviceProtection" name="DeviceProtection">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="TechSupport">Tech Support:</label>
+                    <select id="TechSupport" name="TechSupport">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="StreamingTV">Streaming TV:</label>
+                    <select id="StreamingTV" name="StreamingTV">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="StreamingMovies">Streaming Movies:</label>
+                    <select id="StreamingMovies" name="StreamingMovies">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Partner">Has Partner?</label>
+                    <select id="Partner" name="Partner">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Dependents">Has Dependents?</label>
+                    <select id="Dependents" name="Dependents">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Predict Churn Risk</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="results prediction">
+            <p style="font-size: 24px; margin: 0 0 6px 0; font-weight: 700;">{{ prediction_text }}</p>
+            <p style="font-size: 16px; font-weight: 500; margin: 0; opacity: 0.85; line-height: 1.4;">{{ probability_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div id="content-model" class="tab-content-panel">
+        <div class="section-box">
+            <h3 class="section-title-model">📊 Model Specifications</h3>
+            <ul style="padding-left: 20px; margin: 0; color: #475569; line-height: 1.8; font-size: 15.5px;">
+                <li><strong>Algorithm:</strong> Hyperparameter-Tuned Random Forest Classifier</li>
+                <li><strong>Features Processed:</strong> 19 structural customer demographic and service metrics</li>
+                <li><strong>Feature Transformations:</strong> Yeo-Johnson Transformation (to handle skewness) & Quantile Power Scalers</li>
+                <li><strong>Scaling Pipeline:</strong> Integrated Robust Scaler Layer to reduce the influence of extreme outliers</li>
+                <li><strong>Inference Engine:</strong> Probabilistic Decision Scoring evaluated via the <code>predict_proba()</code> matrix</li>
+                <li><strong>Class Imbalance Management:</strong> Balanced using SMOTE (Synthetic Minority Over-sampling Technique) to guarantee rigorous class sensitivity</li>
+                <li><strong>Key Optimization Metrics:</strong> Optimized heavily for <strong>ROC-AUC</strong> and <strong>Recall</strong> scores to minimize false negatives in high-risk customer segments</li>
+                <li><strong>Feature Importance Focus:</strong> Driven primarily by <code>Tenure</code>, <code>Contract Type</code>, and <code>Monthly Charges</code> as core predictors of customer retention lifecycles</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content-developer" class="tab-content-panel">
+        <div class="section-box">
+            <h3 class="section-title-dev">👩‍💻 Developer Profile</h3>
+            <div style="color: #475569; font-size: 16px; line-height: 1.8;">
+                <p style="margin: 0 0 20px 0;">
+                    <strong>Name:</strong> Swarnalatha<br>
+                    <strong>Role:</strong> Data Analyst Intern<br>
+                    <strong>Organization:</strong> Vihara Tech Institute<br>
+                    <strong>Project Scope:</strong> End-to-End Predictive Analytics & Enterprise Deployment Pipeline
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px;">
+                    <a href="mailto:swarna1704@gmail.com" style="text-decoration: none; color: #ffffff; background: #4f46e5; padding: 10px 22px; border-radius: 30px; font-size: 14px; font-weight: 600; transition: background 0.2s;" onmouseover="this.style.background='#3f37c9'" onmouseout="this.style.background='#4f46e5'">
+                        📨 Email: swarna1704@gmail.com
+                    </a>
+                    <a href="https://github.com/Swarna6656" target="_blank" style="text-decoration: none; color: #ffffff; background: #24292e; padding: 10px 22px; border-radius: 30px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#1a1e22'" onmouseout="this.style.background='#24292e'">
+                        💻 GitHub Profile
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" style="text-decoration: none; color: #ffffff; background: #0077b5; padding: 10px 22px; border-radius: 30px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='#005a87'" onmouseout="this.style.background='#0077b5'">
+                        🔗 Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

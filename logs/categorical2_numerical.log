@@ -1,0 +1,107 @@
+2026-06-12 12:05:48,306 - INFO - Categorical Columns : Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines',
+       'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+       'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+       'PaperlessBilling', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,330 - INFO - After Converting Categorical Data To Numerical
+2026-06-12 12:05:48,330 - INFO - X_train_cat_data : (5634, 16)
+2026-06-12 12:05:48,331 - INFO - Train Columns : Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
+       'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
+       'Contract', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,332 - INFO - Train Null Values : gender              0
+Partner             0
+Dependents          0
+PhoneService        0
+PaperlessBilling    0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaymentMethod       0
+Mobile_Network      0
+dtype: int64
+2026-06-12 12:05:48,332 - INFO - X_test_cat_data : (1409, 16)
+2026-06-12 12:05:48,332 - INFO - Test Columns : Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
+       'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
+       'Contract', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,333 - INFO - Test Null Values : gender              0
+Partner             0
+Dependents          0
+PhoneService        0
+PaperlessBilling    0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaymentMethod       0
+Mobile_Network      0
+dtype: int64
+2026-06-12 12:05:48,333 - INFO - ======== Final Dataset ========
+2026-06-12 12:05:48,333 - INFO - Final Train Data Shape : (5634, 19)
+2026-06-12 12:05:48,333 - INFO - Final Train Columns : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim',
+       'gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
+       'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
+       'Contract', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,334 - INFO - Final Train Null Values : tenure_yeo_trim            0
+MonthlyCharges_qt_trim     0
+TotalCharges_re_qt_trim    0
+gender                     0
+Partner                    0
+Dependents                 0
+PhoneService               0
+PaperlessBilling           0
+MultipleLines              0
+InternetService            0
+OnlineSecurity             0
+OnlineBackup               0
+DeviceProtection           0
+TechSupport                0
+StreamingTV                0
+StreamingMovies            0
+Contract                   0
+PaymentMethod              0
+Mobile_Network             0
+dtype: int64
+2026-06-12 12:05:48,334 - INFO - Final Test Data Shape : (1409, 19)
+2026-06-12 12:05:48,334 - INFO - Final Test Columns : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim',
+       'gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling',
+       'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
+       'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
+       'Contract', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,335 - INFO - Final Test Null Values : tenure_yeo_trim            0
+MonthlyCharges_qt_trim     0
+TotalCharges_re_qt_trim    0
+gender                     0
+Partner                    0
+Dependents                 0
+PhoneService               0
+PaperlessBilling           0
+MultipleLines              0
+InternetService            0
+OnlineSecurity             0
+OnlineBackup               0
+DeviceProtection           0
+TechSupport                0
+StreamingTV                0
+StreamingMovies            0
+Contract                   0
+PaymentMethod              0
+Mobile_Network             0
+dtype: int64

@@ -1,0 +1,214 @@
+2026-06-12 12:05:48,159 - INFO - The shape of the data : (7043, 21)
+2026-06-12 12:05:48,159 - INFO - Data loaded successfully
+2026-06-12 12:05:48,159 - INFO - Total Rows in the data : 7043
+2026-06-12 12:05:48,159 - INFO - Total columns in the data : 21
+2026-06-12 12:05:48,166 - INFO - Before : gender               0
+SeniorCitizen        0
+Partner              0
+Dependents           0
+tenure               0
+PhoneService         0
+MultipleLines        0
+InternetService      0
+OnlineSecurity       0
+OnlineBackup         0
+DeviceProtection     0
+TechSupport          0
+StreamingTV          0
+StreamingMovies      0
+Contract             0
+PaperlessBilling     0
+PaymentMethod        0
+MonthlyCharges       0
+TotalCharges        11
+Churn                0
+Mobile_Network       0
+dtype: int64
+2026-06-12 12:05:48,178 - INFO - Index(['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure',
+       'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity',
+       'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV',
+       'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod',
+       'MonthlyCharges', 'TotalCharges', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,179 - INFO - Index(['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure',
+       'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity',
+       'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV',
+       'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod',
+       'MonthlyCharges', 'TotalCharges', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,180 - INFO - 1353    0
+915     1
+1518    0
+1631    1
+1024    0
+Name: Churn, dtype: int64
+2026-06-12 12:05:48,182 - INFO - 4378    0
+4505    0
+5549    1
+6280    0
+6133    0
+Name: Churn, dtype: int64
+2026-06-12 12:05:48,183 - INFO - Training data size : (5634, 20)
+2026-06-12 12:05:48,183 - INFO - Testing data size : (1409, 20)
+2026-06-12 12:05:48,183 - INFO - Total rows in training data : (5634, 20)
+2026-06-12 12:05:48,188 - INFO - Before Missing values in Train data : gender               0
+SeniorCitizen        0
+Partner              0
+Dependents           0
+tenure               0
+PhoneService         0
+MultipleLines        0
+InternetService      0
+OnlineSecurity       0
+OnlineBackup         0
+DeviceProtection     0
+TechSupport          0
+StreamingTV          0
+StreamingMovies      0
+Contract             0
+PaperlessBilling     0
+PaymentMethod        0
+MonthlyCharges       0
+TotalCharges        10
+Mobile_Network       0
+dtype: int64
+2026-06-12 12:05:48,190 - INFO - Before Missing values in Test data : gender              0
+SeniorCitizen       0
+Partner             0
+Dependents          0
+tenure              0
+PhoneService        0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaperlessBilling    0
+PaymentMethod       0
+MonthlyCharges      0
+TotalCharges        1
+Mobile_Network      0
+dtype: int64
+2026-06-12 12:05:48,217 - INFO - After Missing values in Train data : gender              0
+SeniorCitizen       0
+Partner             0
+Dependents          0
+tenure              0
+PhoneService        0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaperlessBilling    0
+PaymentMethod       0
+MonthlyCharges      0
+Mobile_Network      0
+TotalCharges_re     0
+dtype: int64
+2026-06-12 12:05:48,219 - INFO - After Missing values in Test data : gender              0
+SeniorCitizen       0
+Partner             0
+Dependents          0
+tenure              0
+PhoneService        0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaperlessBilling    0
+PaymentMethod       0
+MonthlyCharges      0
+Mobile_Network      0
+TotalCharges_re     0
+dtype: int64
+2026-06-12 12:05:48,219 - INFO - Total data in X_train : (5634, 20)
+2026-06-12 12:05:48,219 - INFO - Total data in X_test : (1409, 20)
+2026-06-12 12:05:48,222 - INFO - ============X_train_seperation_details===================
+2026-06-12 12:05:48,223 - INFO - X_train : (5634, 20)
+2026-06-12 12:05:48,223 - INFO - X_train_numerical : (5634, 4) : 
+ : Index(['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges_re'], dtype='str')
+2026-06-12 12:05:48,223 - INFO - X_train_categorical : (5634, 16) : 
+ : Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines',
+       'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+       'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+       'PaperlessBilling', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,223 - INFO - ==========X_test_seperation_details=======================
+2026-06-12 12:05:48,223 - INFO - X_test : (1409, 20)
+2026-06-12 12:05:48,223 - INFO - X_test_numerical : (1409, 4) : 
+ : Index(['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges_re'], dtype='str')
+2026-06-12 12:05:48,223 - INFO - X_train_categorical : (1409, 16) : 
+ : Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines',
+       'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+       'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+       'PaperlessBilling', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,223 - INFO - Before X_train_numerical : (5634, 4) : 
+ : Index(['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges_re'], dtype='str')
+2026-06-12 12:05:48,223 - INFO - Before X_test_numerical : (1409, 4) : 
+ : Index(['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges_re'], dtype='str')
+2026-06-12 12:05:48,295 - INFO - After X_train_numerical : (5634, 3) : 
+ : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim'], dtype='str')
+2026-06-12 12:05:48,295 - INFO - After X_test_numerical : (1409, 3) : 
+ : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim'], dtype='str')
+2026-06-12 12:05:48,295 - INFO - Before Feature Selection : (5634, 3) : 
+ : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim'], dtype='str')
+2026-06-12 12:05:48,295 - INFO - Before Feature Selection : (1409, 3) : 
+ : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim'], dtype='str')
+2026-06-12 12:05:48,306 - INFO - After Feature Selection : (5634, 3) : 
+ : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim'], dtype='str')
+2026-06-12 12:05:48,306 - INFO - After Feature Selection : (1409, 3) : 
+ : Index(['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim'], dtype='str')
+2026-06-12 12:05:48,306 - INFO - Categorical columns: Index(['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines',
+       'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+       'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract',
+       'PaperlessBilling', 'PaymentMethod', 'Mobile_Network'],
+      dtype='str')
+2026-06-12 12:05:48,335 - INFO - ['tenure_yeo_trim', 'MonthlyCharges_qt_trim', 'TotalCharges_re_qt_trim', 'gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaymentMethod', 'Mobile_Network']
+2026-06-12 12:05:48,335 - INFO - =====Before Checking Data is Balanced or Not========
+2026-06-12 12:05:48,336 - INFO - Number of rows for Churn Customers : 1 -> : 1496
+2026-06-12 12:05:48,336 - INFO - Number of rows for Not Churn Customers : 0 -> : 4138
+2026-06-12 12:05:52,966 - INFO - =====After Checking Data is Balanced or Not========
+2026-06-12 12:05:52,968 - INFO - Number of rows for Churn Customers : 1 -> : 4138
+2026-06-12 12:05:52,970 - INFO - Number of rows for Not Churn Customers : 0 -> : 4138
+2026-06-12 12:05:52,970 - INFO -       tenure_yeo_trim  MonthlyCharges_qt_trim  TotalCharges_re_qt_trim  gender  Partner  ...  StreamingTV  StreamingMovies  Contract  PaymentMethod  Mobile_Network
+0            6.721004               -0.147316                -0.040869       0        0  ...          0.0         2.000000  1.000000       3.000000         3.00000
+1           11.294878                0.995273                 1.024347       0        0  ...          2.0         2.000000  2.000000       0.000000         1.00000
+2            0.813719               -0.963839                -2.018448       1        1  ...          0.0         0.000000  0.000000       2.000000         3.00000
+3            2.364741               -0.018820                -0.902169       1        0  ...          0.0         0.000000  0.000000       2.000000         3.00000
+4            0.000000               -0.184216                -0.596935       1        0  ...          0.0         0.000000  2.000000       0.000000         3.00000
+...               ...                     ...                      ...     ...      ...  ...          ...              ...       ...            ...             ...
+8271         3.188399                0.503356                -0.553970       0        0  ...          2.0         0.000000  0.000000       1.625330         2.62533
+8272         9.117350                1.209649                 0.656659       0        0  ...          2.0         2.000000  0.000000       1.494157         1.00000
+8273         8.952701                1.535731                 0.637760       0        0  ...          2.0         2.000000  0.000000       2.000000         3.00000
+8274        10.356339               -1.164103                -0.256936       0        0  ...          1.0         1.000000  0.940057       2.059943         3.00000
+8275         7.848393                0.205842                 0.227424       1        1  ...          0.0         0.261947  0.000000       2.000000         0.00000
+
+[8276 rows x 19 columns]
+2026-06-12 12:05:53,009 - INFO - ===Training Logistic Regression=====
+2026-06-12 12:05:53,032 - INFO - Test data Accuracy : 0.7572746628814763
+2026-06-12 12:05:53,035 - INFO - Confusion Matrix : [[756 280]
+ [ 62 311]]
+2026-06-12 12:05:53,043 - INFO - classification report :               precision    recall  f1-score   support
+
+           0       0.92      0.73      0.82      1036
+           1       0.53      0.83      0.65       373
+
+    accuracy                           0.76      1409
+   macro avg       0.73      0.78      0.73      1409
+weighted avg       0.82      0.76      0.77      1409
+
