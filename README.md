@@ -233,9 +233,7 @@ Features:
 ## Installation
 
 bash
-git clone https://github.com/Swarna6656/churn-prediction.git
-cd churn-prediction
-
+https://github.com/Swarna6656/AI-Powered-Telecom-Customer-Churn-Prediction-System.git
 
 Install dependencies:
 
@@ -340,3 +338,7 @@ This system enables:
 ## Author
 
 Odela swarnalatha
+
+##support
+if ypu like the project give me a Star
+contact:swarna1704@gmail.com
