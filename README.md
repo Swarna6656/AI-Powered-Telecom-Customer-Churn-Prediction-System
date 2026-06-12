@@ -340,5 +340,7 @@ This system enables:
 Odela swarnalatha
 
 ##support
-if ypu like the project give me a Star
+
+if you like the project give me a Star
+
 contact:swarna1704@gmail.com
