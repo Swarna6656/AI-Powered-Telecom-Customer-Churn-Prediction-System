@@ -48,9 +48,13 @@ Customer Churn Prediction
 │   ├── Feature Selection
 
 │   └── Correlation Filtering
+
 │
+
 ├── Data Balancing (SMOTE)
+
 │
+
 ├── Model Training & Evaluation
 
 │   ├── KNN
@@ -68,9 +72,13 @@ Customer Churn Prediction
 │   └── SVM
 │
 ├── Model Selection (AUC-ROC Comparison)
+
 │
+
 ├── Model Persistence (Pickle)
+
 │
+
 └── Flask Web Deployment
 
 
